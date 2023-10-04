@@ -12,13 +12,21 @@ import java.util.List;
 
 class MouvementsTest {
 
+    private Mouvements monPersonnage;
+    @BeforeEach
+    void setUp() {  monPersonnage = new Mouvements(); }
+
+    @AfterEach
+    void tearDown() { monPersonnage  = null; }
+
+
     @Test
     void tourner_0_fois_doit_retourner_nord() {
 
         //GIVEN
         String expectedOrientation = "Nord";
         //WHEN
-        String actualOrientation = Mouvements.tourner(0);
+        String actualOrientation = monPersonnage.tourner(0);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
@@ -39,7 +47,7 @@ class MouvementsTest {
         //GIVEN
         String expectedOrientation = "Est";
         //WHEN
-        String actualOrientation = Mouvements.tourner(1);
+        String actualOrientation = monPersonnage.tourner(1);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
@@ -51,7 +59,7 @@ class MouvementsTest {
         //GIVEN
         String expectedOrientation = "Ouest";
         //WHEN
-        String actualOrientation = Mouvements.tourner(3);
+        String actualOrientation = monPersonnage.tourner(3);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
@@ -63,7 +71,7 @@ class MouvementsTest {
         //GIVEN
         String expectedOrientation = "Nord";
         //WHEN
-        String actualOrientation = Mouvements.tourner(4);
+        String actualOrientation = monPersonnage.tourner(4);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
@@ -75,7 +83,21 @@ class MouvementsTest {
         //GIVEN
         String expectedOrientation = "Est";
         //WHEN
-        String actualOrientation = Mouvements.tourner(9);
+        String actualOrientation = monPersonnage.tourner(9);
+
+        //THEN
+        assertThat(actualOrientation).isEqualTo(expectedOrientation);
+    }
+
+    @Test
+    void tourner_doit_prendre_en_compte_position_precedente() {
+
+        //GIVEN
+
+        String expectedOrientation = "Ouest";
+        //WHEN
+        monPersonnage.tourner(2);
+        String actualOrientation = monPersonnage.tourner(1);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
