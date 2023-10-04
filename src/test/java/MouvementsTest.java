@@ -63,7 +63,7 @@ class MouvementsTest {
         //GIVEN
         String expectedOrientation = "Nord";
         //WHEN
-        String actualOrientation = Mouvements.tourner(0);
+        String actualOrientation = Mouvements.tourner(4);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
@@ -75,7 +75,7 @@ class MouvementsTest {
         //GIVEN
         String expectedOrientation = "Est";
         //WHEN
-        String actualOrientation = Mouvements.tourner(0);
+        String actualOrientation = Mouvements.tourner(9);
 
         //THEN
         assertThat(actualOrientation).isEqualTo(expectedOrientation);
