@@ -7,7 +7,11 @@ public class Mouvements {
 
     public static String tourner(int nbre_tour) {
 
-        String orientation ="Nord";
+        String orientation = "Nord";
+
+        if (nbre_tour==1) {
+             orientation = "Est";
+        }
 
         return orientation;
     }
