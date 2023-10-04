@@ -13,6 +13,14 @@ public class Mouvements {
              orientation = "Est";
         }
 
+        if (nbre_tour==2) {
+            orientation = "Sud";
+        }
+
+        if (nbre_tour==3) {
+            orientation = "Ouest";
+        }
+
         return orientation;
     }
 }
